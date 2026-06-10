@@ -12,9 +12,6 @@ import {
   Zap
 } from 'lucide-react';
 
-// Import komponen yang sudah dipisahkan
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 export default function Page() {
   // State untuk melacak tab materi yang sedang aktif
@@ -104,9 +101,6 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-[#0B0F19] text-slate-300 font-sans selection:bg-purple-500/30">
-      {/* Memanggil Navbar */}
-      <Navbar />
-
       <main>
         {/* --- HERO SECTION --- */}
         <section className="pt-24 pb-20 px-6 text-center max-w-4xl mx-auto">
@@ -256,9 +250,6 @@ export default function Page() {
           </div>
         </section>
       </main>
-
-      {/* Memanggil Footer */}
-      <Footer />
     </div>
   );
 }
