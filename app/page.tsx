@@ -3,21 +3,22 @@ import React, { useState } from 'react';
 import { 
   BookOpen, 
   Volume2, 
-  Gamepad2, 
   ArrowRight, 
   Play, 
   Cpu, 
   TerminalSquare, 
   MonitorCheck,
   CheckCircle2,
-  Globe,
-  Code2,
   Zap
 } from 'lucide-react';
 
-export default function App() {
+// Import komponen yang sudah dipisahkan
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+
+export default function Page() {
   // State untuk melacak tab materi yang sedang aktif
-const [activeTab, setActiveTab] = useState<'hardware' | 'software' | 'usage'>('software');
+  const [activeTab, setActiveTab] = useState<'hardware' | 'software' | 'usage'>('software');
 
   // Data materi pembelajaran dibagi menjadi 3 kategori
   const learningData = {
@@ -77,7 +78,7 @@ const [activeTab, setActiveTab] = useState<'hardware' | 'software' | 'usage'>('s
       {
         id: 1,
         term: 'Troubleshooting',
-        phonetic: '/ˈtrʌb.əl.ʃuː.t̬ɪŋ/',
+        phonetic: '/ˈtrʌb.əl.ʃuː.t̬ŋ/',
         definition: 'Proses sistematis untuk menemukan akar penyebab masalah sistem dan memperbaikinya.',
         context: '"The IT support team is currently troubleshooting the network connectivity issues."',
         note: 'A good troubleshooting process always starts with gathering information about the problem.'
@@ -103,36 +104,8 @@ const [activeTab, setActiveTab] = useState<'hardware' | 'software' | 'usage'>('s
 
   return (
     <div className="min-h-screen bg-[#0B0F19] text-slate-300 font-sans selection:bg-purple-500/30">
-      {/* --- HEADER --- */}
-      <header className="border-b border-slate-800 bg-[#0B0F19]/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-500/20">
-              <Code2 className="text-white w-6 h-6" />
-            </div>
-            <div>
-              <h1 className="text-white font-bold text-lg leading-tight tracking-tight">TechVocab</h1>
-              <p className="text-xs text-slate-400">English for IT • Group MI 24</p>
-            </div>
-          </div>
-
-          <div className="hidden md:flex items-center bg-[#131B2B] rounded-full p-1 border border-slate-800">
-            <button className="px-5 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium flex items-center gap-2">
-              <BookOpen className="w-4 h-4" />
-              1. Landing & Learn
-            </button>
-            <button className="px-5 py-2 rounded-full text-slate-400 hover:text-white transition-colors text-sm font-medium flex items-center gap-2">
-              <Gamepad2 className="w-4 h-4" />
-              2. Interactive Quiz
-            </button>
-          </div>
-
-          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700/50">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-            UAS Project Ready
-          </div>
-        </div>
-      </header>
+      {/* Memanggil Navbar */}
+      <Navbar />
 
       <main>
         {/* --- HERO SECTION --- */}
@@ -209,7 +182,7 @@ const [activeTab, setActiveTab] = useState<'hardware' | 'software' | 'usage'>('s
             <p className="text-slate-400">Pilih kategori untuk mempelajari istilah, transkripsi fonetik, definisi, dan konteks nyata.</p>
           </div>
 
-          {/* Tab Navigation (3 Bagian) */}
+          {/* Tab Navigation */}
           <div className="flex flex-wrap items-center gap-3 mb-10 bg-[#131B2B] border border-slate-800 p-2 rounded-xl inline-flex">
             <button 
               onClick={() => setActiveTab('hardware')}
@@ -284,33 +257,8 @@ const [activeTab, setActiveTab] = useState<'hardware' | 'software' | 'usage'>('s
         </section>
       </main>
 
-      {/* --- FOOTER --- */}
-      <footer className="border-t border-slate-800 bg-[#070A10] py-10 mt-12">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-slate-300 font-medium text-sm mb-6">
-            © 2026 ESP 2 Final Project • Group MI 24
-          </p>
-          
-          <div className="flex flex-wrap justify-center items-center gap-6 text-xs text-slate-500 mb-6">
-            <div className="flex items-center gap-2">
-              <Globe className="w-3.5 h-3.5 text-blue-400" />
-              <span>Tema: English for Technology (Hardware & Software)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Code2 className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Media: React + Tailwind CSS</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Zap className="w-3.5 h-3.5 text-amber-400" />
-              <span>Deploy target: Vercel</span>
-            </div>
-          </div>
-          
-          <p className="text-[10px] text-slate-600 max-w-2xl mx-auto">
-            Dirancang secara dinamis untuk interaksi yang mulus tanpa hambatan. Mudah disesuaikan untuk kebutuhan pembelajaran bahasa Inggris IT yang spesifik.
-          </p>
-        </div>
-      </footer>
+      {/* Memanggil Footer */}
+      <Footer />
     </div>
   );
 }
