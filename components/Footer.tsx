@@ -3,7 +3,7 @@ import { Globe, Code2, Zap } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-800 bg-[#070A10] py-10 mt-12">
+    <footer className="border-t border-slate-800 bg-[#070A10] py-10 ">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <p className="text-slate-300 font-medium text-sm mb-6">
           © 2026 ESP 2 Final Project • Group MI 24
